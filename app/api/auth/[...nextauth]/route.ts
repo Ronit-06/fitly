@@ -13,6 +13,8 @@ const handler = NextAuth({
                 password : {label: "Password", type:"password"},
             },
             async authorize(credentials){
+                console.log("Incoming credentials:", credentials);
+
                 await dbConnect();
                 
                 const user = await User.findOne({email: credentials?.email})
@@ -20,7 +22,7 @@ const handler = NextAuth({
 
                 const isValid =  await bcrypt.compare(
                     credentials!.password,
-                    user.Password
+                    user.password
                 )
                 if(!isValid) throw new Error("Invalid Password")
 
