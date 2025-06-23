@@ -3,32 +3,72 @@
 .dashboard-container {
   display: flex;
   min-height: 1000px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .sidebar {
+  display: flex;
   width: 250px;
   background-color: #101010;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .nav-list {
   list-style: none;
-  padding: 0;
+  padding: 20px;
   margin: 0;
+  padding-top: 100px;
 }
 
 .nav-link {
-  color: #ececec;
+  font-size: 30px;
+  color: #9e9a9a;
   text-decoration: none;
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.75rem;
 }
 
 .nav-link:hover {
   color: #ffffff;
 }
 
+.nav-link.active {
+  color: #ffffff;
+  font-weight: bold;
+}
+
 .main-content {
   flex: 1;
   padding: 1rem;
+  margin-left: 260px;
+}
+
+.sidebar-text {
+  padding: 0;
+  margin: 0;
+}
+
+.name {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  font-size: 48px;
+  padding: 20px 20px 0px 32px;
+}
+
+.name-email {
+  color: #9e9a9a;
+  text-decoration: none;
+  padding: 20px 20px 0px 32px;
 }
