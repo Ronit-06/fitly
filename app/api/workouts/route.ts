@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     const body = await req.json();
 
    const workout = new Workout({
-        userId: (session.user as any).id,
+        userId: (session.user as any)._id,
         exercise: body.exercise,
         sets: body.sets,
         reps: body.reps,
@@ -35,7 +35,7 @@ export async function GET(req: Request){
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const workouts = await Workout.find({ userId: (session.user as any).id }).sort({ date: -1 });
+    const workouts = await Workout.find({ userId: (session.user as any)._id }).sort({ date: -1 });
 
     return NextResponse.json(workouts)
 }
