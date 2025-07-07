@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import styles from "./workoutLogs.module.css"
 
 export default function WorkoutLogs() {
-
     type Workout = {
         _id: string;
         exercise: string;
@@ -23,8 +23,6 @@ export default function WorkoutLogs() {
 
     const [isEditing, setIsEditing] = useState(false);
     const [editId, setEditId] = useState<string | null>(null);
-
-
     const [workouts, setWorkouts] = useState<Workout[]>([]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,9 +33,8 @@ export default function WorkoutLogs() {
         e.preventDefault();
 
         const method = isEditing ? "PUT" : "POST";
-        const url = isEditing ? "/api/workouts" : "/api/workouts";
 
-        const res = await fetch(url, {
+        const res = await fetch("/api/workouts", {
             method,
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -58,7 +55,6 @@ export default function WorkoutLogs() {
         }
     };
 
-
     const fetchWorkouts = async () => {
         const res = await fetch("/api/workouts");
         const data = await res.json();
@@ -76,7 +72,6 @@ export default function WorkoutLogs() {
         return acc;
     }, {});
 
-
     const handleEdit = (workout: Workout) => {
         setFormData({
             exercise: workout.exercise,
@@ -88,7 +83,6 @@ export default function WorkoutLogs() {
         setEditId(workout._id);
         setIsEditing(true);
     };
-
 
     const handleDelete = async (id: string) => {
         const res = await fetch("/api/workouts", {
@@ -103,26 +97,30 @@ export default function WorkoutLogs() {
     };
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>Log a Workout</h2>
-            <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
+            <form onSubmit={handleSubmit}>
                 <input name="exercise" placeholder="Exercise" value={formData.exercise} onChange={handleChange} required />
                 <input name="sets" placeholder="Sets" value={formData.sets} onChange={handleChange} required />
                 <input name="reps" placeholder="Reps" value={formData.reps} onChange={handleChange} required />
                 <input name="weight" placeholder="Weight (kg)" value={formData.weight} onChange={handleChange} required />
                 <input type="date" name="date" value={formData.date} onChange={handleChange} required />
-                <button type="submit">Add Workout</button>
+                <button type="submit">{isEditing ? "Update Workout" : "Add Workout"}</button>
             </form>
 
             <h3>Previous Workouts</h3>
             {Object.entries(groupedWorkouts).map(([date, dayWorkouts]) => (
-                <div key={date}>
+                <div key={date} className={styles.workoutGroup}>
                     <h4>{date}</h4>
                     {dayWorkouts.map((workout) => (
-                        <div key={workout._id}>
-                            <p>{workout.exercise} — {workout.sets} sets × {workout.reps} reps @ {workout.weight}kg</p>
-                            <button onClick={() => handleEdit(workout)}>Edit</button>
-                            <button onClick={() => handleDelete(workout._id)}>Delete</button>
+                        <div key={workout._id} className={styles["workout-card"]}>
+                            <p>
+                                <strong>{workout.exercise}</strong> — {workout.sets} sets × {workout.reps} reps @ {workout.weight}kg
+                            </p>
+                            <div className={styles["workout-card-buttons"]}>
+                                <button onClick={() => handleEdit(workout)}>Edit</button>
+                                <button onClick={() => handleDelete(workout._id)}>Delete</button>
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -1,0 +1,109 @@
+/* WorkoutLogs.module.css */
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+.container h2,
+.container h3,
+.container h4 {
+  margin-bottom: 1rem;
+}
+
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.container button {
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.container button:hover {
+  background-color: #005bb5;
+}
+
+.workout-group {
+  margin-top: 2rem;
+}
+
+.workout-card {
+  background: #fff;
+  border-left: 5px solid #0070f3;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.workout-card-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.workout-card button {
+  padding: 0.4rem 0.8rem;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.workout-card button:first-of-type {
+  background-color: #0070f3;
+}
+
+.workout-card button:first-of-type:hover {
+  background-color: #005bb5;
+}
+
+.workout-card button:last-of-type {
+  background-color: #e00;
+}
+
+.workout-card button:last-of-type:hover {
+  background-color: #b30000;
+}
+
+.workout-group h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.25rem;
+}
+
+
