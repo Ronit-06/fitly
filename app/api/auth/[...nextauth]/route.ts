@@ -4,6 +4,13 @@ import { dbConnect } from "../../../../lib/dbConnect";
 import { User } from "../../../../models/User";
 import bcrypt from "bcryptjs";
 
+type SessionUser = {
+  name?: string | null;
+  email?: string | null;
+  image?: string | null;
+  _id: string;
+};
+
 // Export authOptions
 export const authOptions: NextAuthOptions = {
     providers: [
