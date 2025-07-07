@@ -19,7 +19,8 @@ export async function POST(req: Request) {
         exercise: body.exercise,
         sets: body.sets,
         reps: body.reps,
-        weight: body.weight
+        weight: body.weight,
+        date: body.date
     });
 
     const savedWorkout = await workout.save()

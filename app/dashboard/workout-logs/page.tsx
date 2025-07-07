@@ -8,6 +8,7 @@ export default function WorkoutLogs() {
         sets: "",
         reps: "",
         weight: "",
+        date: ""
     })
 
     const [workouts, setWorkouts] = useState<any[]>([]);
@@ -27,12 +28,13 @@ export default function WorkoutLogs() {
                 sets: parseInt(formData.sets),
                 reps: parseInt(formData.reps),
                 weight: parseFloat(formData.weight),
+                date: (formData.date)
             })
         })
 
 
         if (res.ok) {
-            setFormData({ exercise: "", sets: "", reps: "", weight: "" })
+            setFormData({ exercise: "", sets: "", reps: "", weight: "", date:"" })
             fetchWorkouts();
         }
     }
@@ -57,6 +59,7 @@ export default function WorkoutLogs() {
                 <input name="sets" placeholder="Sets" value={formData.sets} onChange={handleChange} required />
                 <input name="reps" placeholder="Reps" value={formData.reps} onChange={handleChange} required />
                 <input name="weight" placeholder="Weight" value={formData.weight} onChange={handleChange} required />
+                <input type ="date" name="date" value={formData.date} onChange={handleChange} required />
                 <button type="submit">Add Workout</button>
             </form>
 
@@ -64,10 +67,11 @@ export default function WorkoutLogs() {
             <ul>
                 {workouts.map((workout: any) => (
                     <li key={workout._id}>
-                        {workout.exercise} - {workout.set} sets - {workout.reps} reps - {workout.weight} kg
+                        {workout.exercise} - {workout.sets} sets - {workout.reps} reps - {workout.weight} kg {workout.date}
                     </li>
                 ))}
             </ul>
         </div>
+
     )
 }
