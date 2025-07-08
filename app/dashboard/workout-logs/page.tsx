@@ -115,7 +115,7 @@ export default function WorkoutLogs() {
                     {dayWorkouts.map((workout) => (
                         <div key={workout._id} className={styles["workout-card"]}>
                             <p>
-                                <strong>{workout.exercise}</strong> — {workout.sets} sets × {workout.reps} reps @ {workout.weight}kg
+                                <strong>{workout.exercise}</strong> — {workout.sets} sets × {workout.reps} reps : {workout.weight}kg
                             </p>
                             <div className={styles["workout-card-buttons"]}>
                                 <button onClick={() => handleEdit(workout)}>Edit</button>
