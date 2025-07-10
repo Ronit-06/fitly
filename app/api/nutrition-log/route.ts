@@ -1,18 +1,49 @@
-// /app/api/nutrition-log/route.ts
-import { NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
+import { NextRequest } from "next/server";
 import { dbConnect } from "../../../lib/dbConnect";
 import { NutritionLog } from "../../../models/nutriontonLog";
 
-export async function POST(req: Request) {
-  try {
-    await dbConnect();
-    const body = await req.json();
+// SECRET is needed for getToken
+const secret = process.env.NEXTAUTH_SECRET;
 
-    const newLog = new NutritionLog(body);
-    await newLog.save();
+export async function GET(req: NextRequest) {
+  const token = await getToken({ req, secret });
+  const userEmail = token?.email;
 
-    return NextResponse.json({ message: "Saved successfully" }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to save log" }, { status: 500 });
+  if (!token || !userEmail) {
+    return new Response("Unauthorized", { status: 401 });
   }
+
+  await dbConnect();
+  const logs = await NutritionLog.find({ userEmail });
+  return Response.json({ logs });
+}
+
+export async function DELETE(req: NextRequest) {
+  const token = await getToken({ req, secret });
+  const userEmail = token?.email;
+
+  if (!token || !userEmail) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+
+  const { id } = await req.json();
+  await dbConnect();
+  await NutritionLog.deleteOne({ _id: id, userEmail });
+  return Response.json({ success: true });
+}
+
+export async function POST(req: NextRequest) {
+  const token = await getToken({ req, secret });
+  const userEmail = token?.email;
+
+  if (!token || !userEmail) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+  const body = await req.json();
+  await dbConnect();
+  const saved = await NutritionLog.create({ ...body, userEmail });
+  console.log("Saved Log:", saved.toObject());
+
+  return Response.json({ success: true });
 }

@@ -8,7 +8,8 @@ const NutritionLogSchema = new mongoose.Schema({
   fat: Number,
   servingSize: Number,
   servingUnit: String,
-  date: { type: Date, default: Date.now },
+  date: String,
+  userEmail: String, 
 });
 
 export const NutritionLog = mongoose.models.NutritionLog || mongoose.model("NutritionLog", NutritionLogSchema);
