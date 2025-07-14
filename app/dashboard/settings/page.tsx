@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
-
 interface UserInfo {
     email: string;
     name?: string;
@@ -31,7 +30,9 @@ export default function SettingsPage() {
         });
 
         if (res.ok) {
-            signOut();
+            await signOut({ callbackUrl: "/login" });
+        } else {
+            alert("Failed to delete account.");
         }
     };
 
@@ -57,7 +58,14 @@ export default function SettingsPage() {
                     <h3 className="section-title">Account</h3>
                     <div className="button-group">
                         <button className="danger-button" onClick={handleDeleteAccount}>Delete Account</button>
-                        <button className="secondary-button" onClick={() => signOut()}>Logout</button>
+                        <button
+                            className="secondary-button"
+                            onClick={() =>
+                                signOut({ callbackUrl: "/login" })
+                            }
+                        >
+                            Logout
+                        </button>
                     </div>
                 </div>
             </div>
