@@ -6,14 +6,14 @@ A full-stack fitness tracking web application built with the **MERN stack** and 
 
 ## 🚀 Features
 
-- 🔐 **Authentication** with NextAuth.js (Email + Password)
-- 📝 **Workout Logger** to record exercise sessions
-- 🍎 **Nutrition Tracker** with calorie and macro breakdown
-- 📏 **Body Measurement Progress Tracking** (Weight, Neck, Waist, Hips, etc.)
-- 📊 **Charts** to visualize fitness progress
-- 🎯 **User Profile & Goals** (Height, Weight, Goal, Calorie Target)
-- ⚙️ **Settings Page** to manage account and personal data
-- 📁 RESTful **API integration** using MongoDB for persistent data storage
+-  **Authentication** with NextAuth.js (Email + Password)
+-  **Workout Logger** to record exercise sessions
+-  **Nutrition Tracker** with calorie and macro breakdown
+-  **Body Measurement Progress Tracking** (Weight, Neck, Waist, Hips, etc.)
+-  **Charts** to visualize fitness progress
+-  **User Profile & Goals** (Height, Weight, Goal, Calorie Target)
+-  **Settings Page** to manage account and personal data
+-  RESTful **API integration** using MongoDB for persistent data storage
 
 ---
 
@@ -21,31 +21,31 @@ A full-stack fitness tracking web application built with the **MERN stack** and 
 
 ### 🏠 Dashboard
 
-> _Add a screenshot of the dashboard UI here_
+<img width="1918" height="910" alt="image" src="https://github.com/user-attachments/assets/41ac68cf-9f3f-4546-9464-7282d9efc956" />
 
 ---
 
 ### 🏋️ Workout Logger
 
-> _Add a screenshot of the workout log page here_
+<img width="1902" height="910" alt="image" src="https://github.com/user-attachments/assets/3aaa6091-20d0-4352-b73a-ee28942b0609" />
 
 ---
 
 ### 🍽️ Nutrition Tracker
 
-> _Add a screenshot of the nutrition log page here_
+<img width="1903" height="909" alt="image" src="https://github.com/user-attachments/assets/f9c12742-b871-4ad2-85ed-8712709739c3" />
 
 ---
 
 ### 📈 Progress Tracker
 
-> _Add a screenshot of the body measurement chart page here_
+<img width="1903" height="912" alt="image" src="https://github.com/user-attachments/assets/0d9c6953-99c3-4ab4-8ed1-ce1826a471b1" />
 
 ---
 
 ### 👤 Settings Page
 
-> _Add a screenshot of the settings/account management page here_
+<img width="1917" height="905" alt="image" src="https://github.com/user-attachments/assets/08ec37ea-aba0-4642-b6fc-637837003e95" />
 
 ---
 
