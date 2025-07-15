@@ -83,6 +83,7 @@ A full-stack fitness tracking web application built with the **MERN stack** and 
 This project was a major learning experience, especially as it was my first time working with Next.js, and it helped me understand how full-stack applications can be built efficiently with modern tooling. Some key takeaways:
 
 🔄 Next.js App Router vs Pages Router
+
 I started by exploring Pages Router, which uses file-based routing in the /pages directory and follows a more traditional structure.
 
 However, I soon transitioned to the App Router, which is more powerful and flexible, supporting server components, layouts, and nested routing out of the box.
@@ -97,42 +98,43 @@ Organize routes and UI using directories like /dashboard, /login, /progress, etc
 
 Differentiating when to use server-side rendering (SSR), static generation, or client-side rendering was eye-opening and allowed me to optimize performance and structure the code better.
 
-📊 Recharts for Data Visualization
-I had never worked with data visualization libraries before, so learning Recharts was a big step.
+---
 
+📊 Recharts for Data Visualization
+
+I had never worked with data visualization libraries before, so learning Recharts was a big step.
 I used Recharts to display body measurements over time in the progress tracking page.
 
 I learned how to:
 
 Use <LineChart>, <XAxis>, <YAxis>, and <Tooltip> components
-
 Dynamically update charts based on user data
-
 Customize graph appearance for a better UX
 
 This gave me confidence in integrating third-party libraries and building clean, interactive UI components.
 
+---
+
 🔐 Authentication with NextAuth
+
 Integrating NextAuth was a new concept to me. I learned to:
 
 Set up credential-based authentication
-
 Use useSession to access and protect pages
-
 Implement signOut and handle edge cases like redirecting after logout
-
 Understanding how authentication flows work under the hood gave me insight into securing routes and user data.
 
+---
+
 🧠 Other Key Learnings
+
 Handling forms, controlled components, and API POST/DELETE requests in Next.js
-
 Creating user-specific routes and protecting them via session-based logic
-
 Structuring MongoDB data with Mongoose, including schemas for workouts, nutrition logs, and body measurements
-
 Styling pages cleanly with regular CSS and scoped styles
-
 Managing app state effectively without using global state libraries
+
+---
 
 ## 🧱 Difficulties I Faced & How I Overcame Them:
 1. Redirect After Logout Not Working
