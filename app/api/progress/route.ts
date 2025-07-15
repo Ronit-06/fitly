@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 import Progress from "../../../models/progressLog";
 import { dbConnect } from "../../../lib/dbConnect";
+import mongoose from "mongoose";
 
 export async function POST(req: Request) {
     await dbConnect();
@@ -39,33 +40,44 @@ export async function GET() {
 export async function PUT(req: Request) {
     await dbConnect();
     const session = await getServerSession(authOptions);
+
     if (!session?.user?.email) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const body = await req.json();
-    const { _id, ...updates } = body;
+    const { _id, email: _, ...updates } = body;
 
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+        return NextResponse.json({ error: "Invalid ObjectId" }, { status: 400 });
+    }
+
+    console.log(session.user.email)
+    const objectId = new mongoose.Types.ObjectId(_id);
     const result = await Progress.findOneAndUpdate(
-        { _id, email: session.user.email },
+        { _id: objectId, email: session?.user?.email},
         { $set: updates },
         { new: true }
     );
+
+    if (!result) {
+        return NextResponse.json({ error: "Progress log not found" }, { status: 404 });
+    }
 
     return NextResponse.json(result);
 }
 
 export async function DELETE(req: Request) {
-  await dbConnect();
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+    await dbConnect();
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.email) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
-  const { _id } = await req.json();
+    const { _id } = await req.json();
 
-  await Progress.deleteOne({ _id, email: session.user.email });
-  return NextResponse.json({ success: true });
+    await Progress.deleteOne({ _id, email: session.user.email });
+    return NextResponse.json({ success: true });
 }
 
 

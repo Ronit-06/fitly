@@ -59,16 +59,18 @@ export default function ProgressPage() {
 
     const handleEdit = async (_id: string) => {
         const updated = { ...editInputs };
+
         if (updated.date) updated.date = new Date(updated.date).toISOString();
         for (const key in updated) {
             if (updated[key] === "") delete updated[key];
             else if (key !== "date") updated[key] = parseFloat(updated[key]);
         }
-
+        console.log("before", _id);
         const res = await fetch("/api/progress", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ _id, ...updated }),
+            body: JSON.stringify({ _id, ...updated })
+
         });
 
         if (res.ok) {
@@ -172,7 +174,18 @@ export default function ProgressPage() {
                                 <div>Neck: {entry.neck ?? "-"}</div>
                                 <div>Waist: {entry.waist ?? "-"}</div>
                                 <div>Hips: {entry.hips ?? "-"}</div>
-                                <button className="progress-button edit" onClick={() => { setEditId(entry._id); setEditInputs(entry); }}>Edit</button>
+                                <button
+                                    className="progress-button edit"
+                                    onClick={() => {
+                                        setEditId(entry._id);
+                                        const { _id, ...rest } = entry;
+                                        setEditInputs({ ...rest });
+                                        console.log(...rest);
+                                    }}
+                                >
+                                    Edit
+                                </button>
+
                                 <button className="progress-button delete" onClick={() => handleDelete(entry._id)}>Delete</button>
                             </div>
                         )}
