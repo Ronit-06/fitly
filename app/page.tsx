@@ -1,5 +1,5 @@
-export default function page(){
-    return(
-        <h1>Base Page</h1>
-    )
+import { redirect } from 'next/navigation';
+
+export default function Page() {
+  redirect('/login');
 }
