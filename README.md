@@ -8,7 +8,7 @@ A full-stack fitness tracking web application built with the **MERN stack** and 
 
 -  **Authentication** with NextAuth.js (Email + Password)
 -  **Workout Logger** to record exercise sessions
--  **Nutrition Tracker** with calorie and macro breakdown
+-  **Nutrition Tracker** with calorie and macro breakdown using **USDA Food API**
 -  **Body Measurement Progress Tracking** (Weight, Neck, Waist, Hips, etc.)
 -  **Charts** to visualize fitness progress
 -  **User Profile & Goals** (Height, Weight, Goal, Calorie Target)
