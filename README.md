@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💪 Fitness Tracker App
 
-## Getting Started
+A full-stack fitness tracking web application built with the **MERN stack** and **Next.js**. This app helps users stay on top of their health and fitness goals by logging workouts, tracking nutrition and calories, monitoring body measurements, and visualizing progress over time.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🔐 **Authentication** with NextAuth.js (Email + Password)
+- 📝 **Workout Logger** to record exercise sessions
+- 🍎 **Nutrition Tracker** with calorie and macro breakdown
+- 📏 **Body Measurement Progress Tracking** (Weight, Neck, Waist, Hips, etc.)
+- 📊 **Charts** to visualize fitness progress
+- 🎯 **User Profile & Goals** (Height, Weight, Goal, Calorie Target)
+- ⚙️ **Settings Page** to manage account and personal data
+- 📁 RESTful **API integration** using MongoDB for persistent data storage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🖼️ Screenshots
 
-## Learn More
+### 🏠 Dashboard
 
-To learn more about Next.js, take a look at the following resources:
+> _Add a screenshot of the dashboard UI here_
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🏋️ Workout Logger
 
-## Deploy on Vercel
+> _Add a screenshot of the workout log page here_
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🍽️ Nutrition Tracker
+
+> _Add a screenshot of the nutrition log page here_
+
+---
+
+### 📈 Progress Tracker
+
+> _Add a screenshot of the body measurement chart page here_
+
+---
+
+### 👤 Settings Page
+
+> _Add a screenshot of the settings/account management page here_
+
+---
+
+## 🛠️ Tech Stack
+
+| Tech             | Description                                  |
+|------------------|----------------------------------------------|
+| **Next.js**      | React framework for SSR/CSR hybrid rendering |
+| **MongoDB**      | NoSQL database for data storage              |
+| **Mongoose**     | MongoDB ODM for schema modeling              |
+| **NextAuth.js**  | Authentication and session handling          |
+| **React**        | Frontend UI framework                        |
+| **Recharts**     | Data visualization with responsive charts    |
+| **CSS Modules**  | Scoped styling across pages/components       |
+
+---
+
+## 📂 Project Structure
+
